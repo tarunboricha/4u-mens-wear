@@ -1,0 +1,18 @@
+<h6 class="sort" (click)="flipSortBy(); $event.stopPropagation();">SortByPrice</h6>
+<ul class="sort-result" (click)="$event.stopPropagation();" *ngIf="showSortBy">
+    <li><a (click)="showSortBy = false; sortFunc('price', true);">Price-Increase</a></li>
+    <li><a (click)="showSortBy = false; sortFunc('price', false);">Price-Decrease</a></li>
+    <li><a (click)="showSortBy = false; sortFunc('name', true);">Name-Increase</a></li>
+    <li><a (click)="showSortBy = false; sortFunc('name', false);">Name-Decrease</a></li>
+</ul>
+<div class="row item-search" *ngFor="let item of ProductCategoryData">
+    <div class="col-sm-3">
+        <img routerLink="/product/{{item.id}}" src="{{item.productURL}}" alt="">
+    </div>
+    <div class="col-sm-8 details-product">
+        <h6 routerLink="/product/{{item.id}}">{{item.productName}}</h6>
+        <p class="product-price">Price: {{item.productPrice}}</p>
+        <p class="product-price">Color: {{item.productColor}}</p>
+        <p>{{item.productDisc}}</p>
+    </div>
+</div>
